@@ -34,7 +34,7 @@ class DeleteCategoryTest : BaseTest() {
         val response: Response<AddCategoryResponse> = categoryService.addCategory(category).execute()
         val id = response.body()?.value?.id.toString()
         checkCategoryResponse(response, category)
-        val respDelete = categoryService.deleteProduct(id).execute()
+        val respDelete = categoryService.deleteCategory(id).execute()
         checkCategoryResponse(respDelete, category)
 
     }
@@ -49,9 +49,9 @@ class DeleteCategoryTest : BaseTest() {
         val response = categoryService.addCategory(category).execute()
         val id = response.body()?.value?.id.toString()
         checkCategoryResponse(response, category)
-        val respDelete = categoryService.deleteProduct(id).execute()
+        val respDelete = categoryService.deleteCategory(id).execute()
         checkCategoryResponse(respDelete, category)
-        val respDelete2 = categoryService.deleteProduct(id).execute()
+        val respDelete2 = categoryService.deleteCategory(id).execute()
         assertThat(respDelete2.code()).isEqualTo(500)
 
     }
@@ -62,7 +62,7 @@ class DeleteCategoryTest : BaseTest() {
     @Feature(FEATURE_API)
     @Severity(SeverityLevel.CRITICAL)
     fun intDeleteCategoryTest() {
-        val respDelete = categoryService.deleteProduct(generateRndInt()).execute()
+        val respDelete = categoryService.deleteCategory(generateRndInt()).execute()
         assertThat(respDelete.code()).isEqualTo(400)
 
     }
@@ -73,7 +73,7 @@ class DeleteCategoryTest : BaseTest() {
     @Feature(FEATURE_API)
     @Severity(SeverityLevel.CRITICAL)
     fun uuidDeleteCategoryTest() {
-        val respDelete = categoryService.deleteProduct(generateRndInt()).execute()
+        val respDelete = categoryService.deleteCategory(generateRndInt()).execute()
         assertThat(respDelete.code()).isEqualTo(400)
     }
 
@@ -83,7 +83,7 @@ class DeleteCategoryTest : BaseTest() {
     @Severity(SeverityLevel.NORMAL)
     @ArgumentsSource(TestData::class)
     fun diffDeleteCategoryTest(input: String) {
-        val respDelete = categoryService.deleteProduct(input).execute()
+        val respDelete = categoryService.deleteCategory(input).execute()
         assertThat(respDelete.code()).isEqualTo(400)
 
     }

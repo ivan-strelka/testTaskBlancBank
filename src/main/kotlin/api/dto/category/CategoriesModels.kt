@@ -46,9 +46,17 @@ data class Value(
 )
 
 data class ErrorResponse(
+
+    @field:JsonProperty("path")
     val path: String,
+
+    @field:JsonProperty("error")
     val error: String,
+
+    @field:JsonProperty("timestamp")
     val timestamp: Long,
+
+    @field:JsonProperty("status")
     val status: Int
 )
 

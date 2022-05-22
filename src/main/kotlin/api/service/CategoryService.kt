@@ -16,7 +16,7 @@ interface CategoryService {
     ): Call<AddCategoryResponse>
 
     @DELETE("$CATEGORY_URL/{id}")
-    fun deleteProduct(
+    fun deleteCategory(
         @Path("id") id: String?
     ): Call<AddCategoryResponse>
 

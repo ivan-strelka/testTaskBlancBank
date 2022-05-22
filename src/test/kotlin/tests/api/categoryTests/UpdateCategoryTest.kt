@@ -197,7 +197,7 @@ class UpdateCategoryTest : BaseTest() {
     @AfterEach
     fun deleteCategory() {
         id.let {
-            val response = categoryService.deleteProduct(it).execute()
+            val response = categoryService.deleteCategory(it).execute()
             Assertions.assertThat(response.code()).isEqualTo(201)
         }
 
