@@ -1,0 +1,94 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
+    id "io.qameta.allure" version "2.9.6"
+}
+
+repositories {
+    mavenCentral()
+}
+
+def allureVersion = '2.17.2',
+    junitVersion = '5.8.2',
+    restAssuredVersion = "4.3.3",
+    aspectjVersion = "1.9.6",
+    jacksonCoreVersion = "2.13.0",
+    hamcrestVersion = "1.3",
+    log4jVersion = '2.17.1',
+    slf4jVersion = '1.7.35',
+    assertjVersion = '3.11.1',
+    lombokVersion = '1.18.22',
+    retrofit2Version = '2.9.0',
+    loggingInterceptorVersion = '4.9.3',
+    javafakerjVersion = '1.8.0'
+
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jacksonCoreVersion"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonCoreVersion"
+    implementation "com.fasterxml.jackson.core:jackson-core:$jacksonCoreVersion"
+    implementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
+    implementation "io.github.serpro69:kotlin-faker:$javafakerjVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-jackson:$retrofit2Version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
+    implementation "org.projectlombok:lombok:$lombokVersion"
+    implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.7.1-2'
+
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4jVersion
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: log4jVersion
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: log4jVersion
+    implementation group: 'org.slf4j', name: 'jcl-over-slf4j', version: slf4jVersion
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    implementation(
+            "org.aspectj:aspectjweaver:$aspectjVersion",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "io.qameta.allure:allure-java-commons:$allureVersion",
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion",
+            "org.assertj:assertj-core:$assertjVersion",
+            "org.junit.jupiter:junit-jupiter-params:$junitVersion"
+    )
+
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'allure.results.directory', "$projectDir/build/allure-results"
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED", "STANDARD_OUT", "STANDARD_ERROR"
+    }
+    scanForTestClasses = false
+    testLogging.showStandardStreams = true
+    dependsOn 'cleanTest'
+}
+
+allure {
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.17.2")
+            }
+        }
+
+    }
+    report {
+        version.set("2.17.2")
+    }
+}
+
+task api(type: Test) {
+    useJUnitPlatform {
+        includeTags 'WEB_API'
+    }
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
