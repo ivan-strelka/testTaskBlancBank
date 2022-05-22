@@ -1,29 +1,28 @@
 package api.service
 
-import api.constants.*
+import api.constants.CATEGORY_URL
 import api.dto.AddCategoryRequest
-import api.dto.ResponseAddCategory
+import api.dto.AddCategoryResponse
 import retrofit2.Call
 import retrofit2.http.*
 
 
 interface CategoryService {
 
-
     @PATCH("$CATEGORY_URL/{id}")
     fun updateCategory(
-        @Path("id") id: Long?,
+        @Path("id") id: String?,
         @Body category: AddCategoryRequest
-    ): Call<ResponseAddCategory>
+    ): Call<AddCategoryResponse>
 
     @DELETE("$CATEGORY_URL/{id}")
     fun deleteProduct(
         @Path("id") id: String?
-    ): Call<ResponseAddCategory>
+    ): Call<AddCategoryResponse>
 
 
     @POST(CATEGORY_URL)
     fun addCategory(
         @Body category: AddCategoryRequest
-    ): Call<CategoryResp2>
+    ): Call<AddCategoryResponse>
 }

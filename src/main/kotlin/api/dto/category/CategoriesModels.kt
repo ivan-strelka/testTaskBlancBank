@@ -45,5 +45,13 @@ data class Value(
     val brand: String
 )
 
+data class ErrorResponse(
+    val path: String,
+    val error: String,
+    val timestamp: Long,
+    val status: Int
+)
+
+
 
 
