@@ -14,7 +14,6 @@ data class AddCategoryRequest(
     val brand: String
 )
 
-
 data class AddCategoryResponse(
 
     @field:JsonProperty("action")

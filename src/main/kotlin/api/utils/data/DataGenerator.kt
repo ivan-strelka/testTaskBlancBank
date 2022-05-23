@@ -21,6 +21,11 @@ fun generateRndInt(): String {
     return randomizer().random.nextInt(1..Int.MAX_VALUE).toString()
 }
 
+@Step("Создаём случайный percentDiscount")
+fun generateRndPercentDiscount(): String {
+    return randomizer().random.nextInt(1..100).toString()
+}
+
 @Step("Создаём случайный firstName")
 fun generateRndFirstName() = randomizer().name.firstName()
 

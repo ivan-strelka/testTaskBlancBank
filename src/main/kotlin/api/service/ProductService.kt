@@ -1,5 +1,6 @@
 package api.service
 
+import api.constants.PRODUCTS_URL
 import api.constants.PRODUCT_URL
 import api.dto.product.*
 import retrofit2.Call
@@ -15,17 +16,15 @@ interface ProductService {
     @DELETE("$PRODUCT_URL/{id}")
     fun deleteProduct(
         @Path("id") id: String?
-    ): Call<ResponseCreateProduct>
+    ): Call<ResponseUpdate>
 
     @GET("$PRODUCT_URL/{id}")
     fun getProduct(
         @Path("id") id: String?
     ): Call<ResponseGetSingleProduct>
 
-    @GET("$PRODUCT_URL")
-    fun getAllProduct(
-        @Path("id") id: String?
-    ): Call<ListProductResp>
+    @GET(PRODUCTS_URL)
+    fun getAllProduct(): Call<ListProductResp>
 
     @PATCH("$PRODUCT_URL/{id}")
     fun updateCategory(

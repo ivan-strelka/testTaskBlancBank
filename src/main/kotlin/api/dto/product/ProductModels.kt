@@ -2,8 +2,10 @@ package api.dto.product
 
 import api.dto.AddCategoryRequest
 import api.dto.Value
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class AddProductRequest(
 
     @field:JsonProperty("amount")
@@ -19,12 +21,13 @@ data class AddProductRequest(
     val categories: List<AddCategoryRequest>,
 
     @field:JsonProperty("isVisible")
-    val isVisible: String,
+    val isVisible: Boolean,
 
     @field:JsonProperty("percentDiscount")
     val percentDiscount: Int
 )
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class ResponseCreateProduct(
 
     @field:JsonProperty("values")
@@ -64,11 +67,11 @@ data class ValuesItem(
     val percentDiscount: Int
 )
 
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class ListProductResp(
 
     @field:JsonProperty("values")
-    val values: List<AddProductRequest>
+    val values: List<ValuesItem>
 )
 
 data class ResponseGetSingleProduct(

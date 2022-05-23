@@ -5,6 +5,7 @@ import api.constants.FEATURE_API
 import api.dto.AddCategoryResponse
 import api.utils.data.TestData
 import api.utils.data.generateRndInt
+import api.utils.data.getRandomUUID
 import io.qameta.allure.Description
 import io.qameta.allure.Feature
 import io.qameta.allure.Severity
@@ -73,8 +74,8 @@ class DeleteCategoryTest : BaseTest() {
     @Feature(FEATURE_API)
     @Severity(SeverityLevel.CRITICAL)
     fun uuidDeleteCategoryTest() {
-        val respDelete = categoryService.deleteCategory(generateRndInt()).execute()
-        assertThat(respDelete.code()).isEqualTo(400)
+        val respDelete = categoryService.deleteCategory(getRandomUUID().toString()).execute()
+        assertThat(respDelete.code()).isEqualTo(500)
     }
 
     @ParameterizedTest(name = "#{index} - Негативный тест удаления не существующего объект Category path  -> {0}")

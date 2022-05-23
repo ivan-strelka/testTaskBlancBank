@@ -18,22 +18,9 @@ def allureVersion = '2.17.2',
     lombokVersion = '1.18.22',
     retrofit2Version = '2.9.0',
     loggingInterceptorVersion = '4.9.3',
-    javafakerjVersion = '1.8.0'
-
+        kotlinFakerjVersion = '1.8.0'
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation "com.fasterxml.jackson.core:jackson-annotations:$jacksonCoreVersion"
-    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonCoreVersion"
-    implementation "com.fasterxml.jackson.core:jackson-core:$jacksonCoreVersion"
-    implementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
-    implementation "io.github.serpro69:kotlin-faker:$javafakerjVersion"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit2Version"
-    implementation "com.squareup.retrofit2:converter-jackson:$retrofit2Version"
-    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
-    implementation "org.projectlombok:lombok:$lombokVersion"
-    implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.7.1-2'
-
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4jVersion
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: log4jVersion
@@ -41,6 +28,19 @@ dependencies {
     implementation group: 'org.slf4j', name: 'jcl-over-slf4j', version: slf4jVersion
     implementation group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
     implementation(
+            group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.7.1-2',
+            "org.projectlombok:lombok:$lombokVersion",
+            "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion",
+            "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion",
+            "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion",
+            "com.squareup.retrofit2:converter-jackson:$retrofit2Version",
+            "com.squareup.retrofit2:retrofit:$retrofit2Version",
+            "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
+            "com.fasterxml.jackson.core:jackson-databind:$jacksonCoreVersion",
+            "com.fasterxml.jackson.core:jackson-core:$jacksonCoreVersion",
+            "org.hamcrest:hamcrest-all:$hamcrestVersion",
+            "io.github.serpro69:kotlin-faker:$kotlinFakerjVersion",
+            "com.fasterxml.jackson.core:jackson-annotations:$jacksonCoreVersion",
             "org.aspectj:aspectjweaver:$aspectjVersion",
             "io.qameta.allure:allure-java-commons:$allureVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
