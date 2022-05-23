@@ -9,13 +9,19 @@
 ### Endpoints:
 
 Метод `POST /api/caterogy` Добавление категории
+
 Метод `DETELE /api/caterogy/{categoryId}` Удаление категории по id
+
 Метод `PATCH /api/caterogy/{categoryId}` Изменение категории по id
 
 Метод `POST /api/product` Добавление товара
+
 Метод `GET /api/product/{productId}` Получение товара по id
+
 Метод `DELETE /api/product/{productId}` Удаление товара по id
+
 Метод `PATCH /api/product/{productId}` Изменение товара по id
+
 Метод `GET /api/products` Получение списка товаров
 
 ## Запуск и прогон тестов
