@@ -1,8 +1,8 @@
 # Kotlin API testing automation framework
 
-### Simple API test to https://test-api-market.herokuapp.com/swagger-ui/index.html#
+### Пример API тестов для сервиса https://test-api-market.herokuapp.com/swagger-ui/index.html#
 
-Пример тестов, которые можно реализовать для тестирования службы REST API, предоставляющей интерфейс CRUD.
+Пример тестов, которые можно реализовать для тестирования службы REST API, предоставляющей интерфейс CRUD операций
 
 ##### Этот проект построен со стеком: `Kotlin + Retrofir 2 + Junit5 + Allure + Jackson`
 
@@ -13,9 +13,9 @@
 Метод `PATCH /api/caterogy/{categoryId}` Изменение категории по id
 
 Метод `POST /api/product` Добавление товара
-Метод `GET /api/product/{producetId}` Получение товара по id
-Метод `DELETE /api/product/{producetId}` Удаление товара по id
-Метод `PATCH /api/product/{producetId}` Изменение товара по id
+Метод `GET /api/product/{productId}` Получение товара по id
+Метод `DELETE /api/product/{productId}` Удаление товара по id
+Метод `PATCH /api/product/{productId}` Изменение товара по id
 Метод `GET /api/products` Получение списка товаров
 
 ## Запуск и прогон тестов
