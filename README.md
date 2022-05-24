@@ -4,7 +4,7 @@
 
 Пример тестов, которые можно реализовать для тестирования службы REST API, предоставляющей интерфейс CRUD операций
 
-##### Этот проект построен со стеком: `Kotlin + Retrofir 2 + Junit5 + Allure + Jackson`
+##### Этот проект построен со стеком: `Kotlin + Retrofit 2 + Junit5 + Allure + Jackson`
 
 ### Endpoints:
 
